@@ -1,0 +1,9 @@
+<%inherit file="/homepage/templates/base_ajx.htm"/>
+
+<a href="/catalog/product/1234/">
+    <div class="product-tile">
+        <div class="product-image"><img src="/static/catalog/media/products/" + ${product.image}/></div>
+        <div class="product-name">${product.name}</div>
+        <div class="product-price">${product.price}</div>
+    </div>
+</a>

@@ -1,0 +1,30 @@
+<%inherit file="app_base.htm"/>
+
+
+<%block name="menu_items">
+
+
+<ul class="navbar-nav ml-auto">
+    <li class="nav-item dropdown" >
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Welcome, User
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/account/index">Account</a>
+                        <a class="dropdown-item" href="#">Logout</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Settings</a>
+                        </div>
+     </li>
+</ul>
+
+
+</%block>
+
+
+
+<div id="site_center">
+    <%block name="site_center">
+    Welcome to Your Account
+    </%block>
+</div>

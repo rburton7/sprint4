@@ -1,0 +1,138 @@
+## this is the skeleton of all pages on in this app - it defines the basic html tags
+
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <head>
+
+        <title>Sprint 1 &mdash; <%block name="title"></%block>  </title>
+
+        ## add any site-wide scripts or CSS here; for example, jquery:
+        <script src="${ STATIC_URL }homepage/media/jquery-3.3.1.js"></script>
+        <script src="${ STATIC_URL }homepage/media/bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css"  href="${ STATIC_URL }homepage/media/bootstrap-4.2.1-dist/css/bootstrap.min.css">
+
+
+        ##the link tag for the icon
+
+        <link rel="icon" href="${ STATIC_URL }homepage/media/favicon.ico" alt="python" />
+       
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+
+        ## render the static file links with the same name as this template
+        <script src="/django_mako_plus/dmp-common.min.js"></script>
+        ${ django_mako_plus.links(self) }
+
+    </head>
+
+    <body>
+        <div   id="maintenance_message"  class="alert alert-danger" > Hey there. The server is going down tonight. Boo Hoo </div>
+        <header id="header" >
+                
+            
+        ##    <%block name="site_icon"  > <img src="${ STATIC_URL }homepage/media/ba.ico.png" alt="python" /></%block>
+            <div>
+         
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+   <img src="${STATIC_URL }homepage/media/bird.png" alt="bird"> 
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+
+ <ul class="navbar-nav mr-auto">
+      <li class="nav-item ${ 'active' if request.dmp.page == 'index' else ''} ">
+        <a class="nav-link" href="/index/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item ${ 'active' if request.dmp.page == 'contact' else ''} ">
+        <a class="nav-link" href="/contact/">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link ${ 'active' if request.dmp.page == 'about' else ''} " href="#">About</a>
+      </li>
+</ul>
+
+<ul class="navbar-nav ml-auto">
+    <li class="nav-item dropdown" >
+                        
+                    
+                        % if request.user.is_authenticated :
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                             Welcome, Homer
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/account/logout/">Logout</a>
+                        % else: 
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                             Welcome!
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/account/login/">Login</a>
+                        % endif
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Settings</a>
+                        </div>
+     </li>
+</ul>
+
+    <%block name="menu_items">
+
+    </%block>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+           
+            
+        </header>
+
+        <main>
+
+
+
+            <div id="site_left">
+            <%block name="site_left">
+                Left Side
+            </%block>
+             </div>
+
+
+             <div id="site_center">
+            <%block name="site_center">
+                Center of the Page
+            </%block>
+            </div>
+
+             <div id="site_right">
+            <%block name="site_right">
+               Right Side
+            </%block>
+             </div>
+          
+        </main>
+
+        <footer>
+         <%! 
+            from datetime import datetime
+            %>
+             &copy; ${datetime.now().strftime('%Y') } 
+          
+            
+        </footer>
+           
+    </body>
+   
+</html>

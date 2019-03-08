@@ -1,0 +1,552 @@
+#  3+ categories--done
+#  6+ active products per category
+#  1+ inactive products
+#  2+ product images per product
+
+- model: catalog.Category
+  pk: 1
+  fields: { 
+    last_modified: !!timestamp '2019-03-04 20:58:17.915074', 
+    name: food }
+
+- model: catalog.Category
+  pk: 2
+  fields: { last_modified: !!timestamp '2019-03-04 20:58:17.915074', name: games }
+
+- model: catalog.Category
+  pk: 3
+  fields: {
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074',
+      name: Home and Office}
+
+- model: catalog.Product
+  pk: 1
+  fields: {
+    category: 1,
+    last_modified: !!timestamp '2019-03-04 20:58:17.915074',  
+    status: A,
+    name: Soda,
+    description: Take a refreshing sip from this cool can of heaven's nectar,
+    price: 1.25,
+    quantity: 1,
+    reorder_trigger: 2,
+    reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 1
+  fields: {
+    filename: bottle_cap.jpg,
+    product: 1 }
+
+- model: catalog.ProductImage
+  pk: 2
+  fields: {
+      product: 1,
+      filename: soda_can.jpg}
+  
+- model: catalog.Product
+  pk: 2
+  fields: {
+      category: 1,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074', 
+      status: A,
+      name: Bread,
+      description: Get that breaaaaaaaad,
+      price: 1.40,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 3
+  fields: {
+      product: 2,
+      filename: bread.jpg}
+
+- model: catalog.ProductImage
+  pk: 4
+  fields: {
+      product: 2,
+      filename: bowl.jpg}
+  
+- model: catalog.Product
+  pk: 3
+  fields: {
+      category: 1,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074',
+      status: A,
+      name: Carrots,
+      description: Mmmhmm rabbit food,
+      price: 0.55,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 5
+  fields: {
+      product: 3,
+      filename: carrots.jpg}
+
+- model: catalog.ProductImage
+  pk: 6
+  fields: {
+      product: 3,
+      filename: cat.jpg}
+    
+- model: catalog.Product
+  pk: 4
+  fields: {
+      category: 1,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074',
+      status: A,
+      name: Candy,
+      description: If these candy wrappers look empty...it's because they are,
+      price: 3.45,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 7
+  fields: {
+      product: 4,
+      filename: candy_wrapper.jpg}
+
+- model: catalog.ProductImage
+  pk: 8
+  fields: {
+      product: 4,
+      filename: cinder_block.jpg}
+    
+- model: catalog.Product
+  pk: 5
+  fields: {
+      category: 1,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074' , 
+      status: A,
+      name: Chocolate,
+      description: An energy boost so safe even your baby can eat it,
+      price: 4.67,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 9
+  fields: {
+      product: 5,
+      filename: chocolate.jpg}
+
+- model: catalog.ProductImage
+  pk: 10
+  fields: {
+      product: 5,
+      filename: cork.jpg}
+
+- model: catalog.Product
+  pk: 6
+  fields: {
+      category: 1,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074',      
+      status: A,
+      name: Cookies,
+      description: This is actually a Cookie Monster action figure,
+      price: 11.45,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 11
+  fields: {
+      product: 6,
+      filename: cookie_jar.jpg}
+
+- model: catalog.ProductImage
+  pk: 12
+  fields: {
+      product: 6,
+      filename: flowers.jpg}
+
+- model: catalog.Product
+  pk: 7
+  fields: {
+      category: 1,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074',  
+      status: I,
+      name: Milk,
+      description: Cow,
+      price: 11.45,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 13
+  fields: {
+      product: 7,
+      filename: milk.jpg}
+
+- model: catalog.ProductImage
+  pk: 14
+  fields: {
+      product: 7,
+      filename: beef.jpg}
+
+- model: catalog.Product
+  pk: 8
+  fields: {
+      category: 2,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074',  
+      status: A,
+      name: Keyboard,
+      description: Remember the Mavis Beacon asteroid typing game Yeah you can play that,
+      price: 13.67,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 15
+  fields: {
+      product: 8,
+      filename: keyboard.jpg}
+
+- model: catalog.ProductImage
+  pk: 16
+  fields: {
+      product: 8,
+      filename: keys.jpg}
+
+- model: catalog.Product
+  pk: 9
+  fields: {
+      category: 2,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074',  
+      status: A,
+      name: MP3 Player,
+      description: Play some good old fashioned bowling. Maybe some pinball,
+      price: 45.23,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 17
+  fields: {
+      product: 9,
+      filename: mp3_player.jpg}
+
+- model: catalog.ProductImage
+  pk: 18
+  fields: {
+      product: 9,
+      filename: ipod.jpg}
+
+- model: catalog.Product
+  pk: 10
+  fields: {
+      category: 2,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074',  
+      status: A,
+      name: Credit Card,
+      description: Buy all the games you want,
+      price: 0.01,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 19
+  fields: {
+      product: 10,
+      filename: credit_card.jpg}
+
+- model: catalog.ProductImage
+  pk: 20
+  fields: {
+      product: 10,
+      filename: door.jpg}
+
+- model: catalog.Product
+  pk: 11
+  fields: {
+      category: 2,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074',  
+      status: A,
+      name: Controller,
+      description: Nothing wrong with a classic,
+      price: 14.50,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 21
+  fields: {
+      product: 11,
+      filename: controller.jpg}
+
+- model: catalog.ProductImage
+  pk: 22
+  fields: {
+      product: 11,
+      filename: monitor.jpg}
+
+- model: catalog.Product
+  pk: 12
+  fields: {
+      category: 2,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074',  
+      status: A,
+      name: VR Glasses,
+      description: The world is your playground,
+      price: 104.65,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 23
+  fields: {
+      product: 12,
+      filename: glasses.jpg}
+
+- model: catalog.ProductImage
+  pk: 24
+  fields: {
+      product: 12,
+      filename: headphones.jpg}
+
+- model: catalog.Product
+  pk: 13
+  fields: {
+      category: 2,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074',  
+      status: A,
+      name: Playing Cards,
+      description: Anyone know why these are called trump cards Cause I'm not a fan.,
+      price: 13.67,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 25
+  fields: {
+      product: 13,
+      filename: playing_cards.jpg}
+
+- model: catalog.ProductImage
+  pk: 26
+  fields: {
+      product: 13,
+      filename: phone.jpg}
+
+- model: catalog.Product
+  pk: 14
+  fields: {
+      category: 2,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074',  
+      status: I,
+      name: Pool Stick,
+      description: See how many eight balls you can sink.,
+      price: 13.67,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 27
+  fields: {
+      product: 14,
+      filename: pool_stick.jpg}
+
+- model: catalog.Product
+  pk: 15
+  fields: {
+      category: 3,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074',  
+      status: A,
+      name: Rubber Duck,
+      description: Perfect clutter for your home office desk.,  
+      price: 500.56,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 28
+  fields: {
+      product: 15,
+      filename: soap.jpg}
+
+- model: catalog.ProductImage
+  pk: 29
+  fields: {
+      product: 15,
+      filename: rubber_dudck.jpg}
+
+- model: catalog.Product
+  pk: 16
+  fields: {
+      category: 3,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074', 
+      status: A,
+      name: Desk,
+      description: Great for getting work done.  Unless you prefer sitting on the floor. Then don't be an idiot and buy this.,
+      price: 70.76,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 30
+  fields: {
+      product: 16,
+      filename: desk.jpg}
+    
+- model: catalog.ProductImage
+  pk: 31
+  fields: {
+      product: 16,
+      filename: chair.jpg}
+
+- model: catalog.Product
+  pk: 17
+  fields: {
+      category: 3,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074',  
+      status: A,
+      name: Glow Stick,
+      description: For all the office raves we know you have.,
+      price: 13.67,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 32
+  fields: {
+      product: 17,
+      filename: glow_stick.jpg}
+
+- model: catalog.ProductImage
+  pk: 33
+  fields: {
+      product: 17,
+      filename: grid_paper.jpg}
+
+- model: catalog.Product
+  pk: 18
+  fields: {
+      category: 3,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074',  
+      status: A,
+      name: Hair tie,
+      description: Because you can't get work done with hair in your face. Rock that wo/man bun.,
+      price: 1.13,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 34
+  fields: {
+      product: 18,
+      filename: hair_tie.jpg}
+
+- model: catalog.ProductImage
+  pk: 35
+  fields: {
+      product: 18,
+      filename: rubber_band.jpg}
+
+- model: catalog.Product
+  pk: 19
+  fields: {
+      category: 3,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074',  
+      status: A,
+      name: Lamp,
+      description: Keeping it lit,
+      price: 13.67,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 36
+  fields: {
+      product: 19,
+      filename: lamp.jpg}
+
+- model: catalog.ProductImage
+  pk: 37
+  fields: {
+      product: 19,
+      filename: lamp_shade.jpg}
+
+- model: catalog.Product
+  pk: 20
+  fields: {
+      category: 3,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074',  
+      status: A,
+      name: Newspaper,
+      description: For when you want to look busy.,
+      price: 2.34,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+    
+- model: catalog.ProductImage
+  pk: 38
+  fields: {
+      product: 20,
+      filename: newspaper.jpg}
+
+- model: catalog.ProductImage
+  pk: 39
+  fields: {
+      product: 20,
+      filename: bookmark.jpg}
+
+- model: catalog.Product
+  pk: 21
+  fields: {
+      category: 3,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074',  
+      status: A,
+      name: Outlet,
+      description: Why get a power strip when you can install like 50 of these,
+      price: 5.64,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}
+
+- model: catalog.ProductImage
+  pk: 40
+  fields: {
+      product: 21,
+      filename: outlet.jpg}
+
+- model: catalog.ProductImage
+  pk: 41
+  fields: {
+      product: 21,
+      filename: phone.jpg}
+
+- model: catalog.Product
+  pk: 22
+  fields: {
+      category: 3,
+      last_modified: !!timestamp '2019-03-04 20:58:17.915074',  
+      status: I,
+      name: Pencil,
+      description: An ancient artifact.,
+      price: 3000.33,
+      quantity: 1,
+      reorder_trigger: 2,
+      reorder_quantity: 5}

@@ -1,0 +1,29 @@
+<%inherit file="base.htm"/>
+
+<%block name="menu_items">
+
+
+
+</%block>
+
+<%block name="site_left">
+
+
+
+<ul class="nav flex-column">
+      <li class="nav-item ${ 'active' if request.dmp.page == 'index' else ''}">
+        <a class="nav-link" href="/index/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item ${ 'active' if request.dmp.page == 'contact' else ''}">
+        <a class="nav-link" href="/contact/">Contact</a>
+      </li>
+      <li class="nav-item ${ 'active' if request.dmp.page == 'about' else ''}">
+        <a class="nav-link" href="#">About</a>
+      </li>
+</ul>
+
+<%block name="inside_left">
+
+</%block>
+
+</%block>

@@ -1,0 +1,44 @@
+<%inherit file="app_base.htm" />
+
+<%block name="title"> Home  </%block>
+
+
+
+
+<div id="site_center">
+    <%block name="site_center">
+  
+
+<form style="center-block"  method = "POST">
+
+        <p>Name: <input type="text" name="yourname" /> </p>
+
+        <p>Email: <input type="email" name="youremail" /> </p>
+
+        <p>Happy? <select name="happy" > 
+                <option>Yes</option>
+                <option>No</option>
+                </select>
+        </p>
+
+        <p><input type="submit"  /> </p>
+
+
+</form>
+
+    </%block>
+</div>
+
+<div id="site_right">
+    <%block name="site_right">
+   <div>
+
+    Let us hear from you!! We want to know if you're happy and if you aren't!
+
+    Send us your email and we'll make sure to keep you updated with all the latest Panic Art Info!!
+
+   </div>
+
+
+    </%block>
+</div>
