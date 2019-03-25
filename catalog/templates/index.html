@@ -1,8 +1,39 @@
 <%inherit file="app_base.htm" />
 
-<%block name="content">
-    <div class="content">
-        <h3>Congratulations -- you've successfully created a new DMP app!</h3>
-        <h4 class="utc-time">Current time in UTC: ${ utc_time }</h4>
-    </div>
+<%block name="site_center">
+   <div>
+
+        %if category is not None:
+            <h1>${ category.name }</h1>
+        %else: 
+            <h1>  All Products </h1>
+        %endif
+
+
+
+   </div>
+
+
+    <div >
+
+            %for product in products :
+               <span class="product-container" data-product-id="${product.id}"></span>
+            %endfor
+    </div>  
+
+<div>
+       %if page > 1 and page <= numpages:
+           <a class="btn btn-success" href="/catalog/index/${ category.id if category is not None else '' }/${ page - 1 if page != 1 else page}/">Previous Page</a>
+       %endif
+
+       %if page < numpages:
+           <a class="btn btn-success" href="/catalog/index/${ category.id if category is not None else '' }/${ page + 1 if page < numpages else page}/">Next Page</a>
+       %endif
+   </div>
+
+ 
+</%block>
+
+<%block name="site_right">
+
 </%block>

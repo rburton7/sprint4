@@ -1,4 +1,6 @@
 <%inherit file="/homepage/templates/base.htm"/>
+<%!from catalog import models as cmod%>
+
 
 
 <%block name="site_left">
@@ -7,7 +9,7 @@
 
 
     <ul class="nav flex-column">
-        %for category in categories:
+        %for category in cmod.Category.objects.all() :
             <li class="nav-item"><a class="nav-link" href="/catalog/index/${category.id}">${category.name}</a> </li>
         %endfor
     </ul>

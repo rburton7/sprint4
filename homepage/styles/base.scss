@@ -61,6 +61,9 @@ header img {
     vertical-align: middle;
     margin-right: 24px;
 }
+
+
+
 $side_col_width: 200px;
 main {
     position: relative;
@@ -79,10 +82,13 @@ main {
         
     }
     #site_center {
+       
         margin-left: $side_col_width;
         text-align:center;
         background-color: rgb(63, 58, 95);
         margin-right: $side_col_width;
+
+      
     }
     #site_right {
         background-color: darkslategrey;

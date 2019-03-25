@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1552006473.7894568
+_modified_time = 1552070596.2402
 _enable_loop = True
 _template_filename = '/Users/rhettburton/sprint1/catalog/templates/app_base.htm'
 _template_uri = 'app_base.htm'
@@ -14,6 +14,8 @@ import django_mako_plus
 import django.utils.html
 _exports = ['site_left', 'inside_left']
 
+
+from catalog import models as cmod
 
 def _mako_get_namespace(context, name):
     try:
@@ -31,13 +33,13 @@ def render_body(context,**pageargs):
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         self = context.get('self', UNDEFINED)
-        categories = context.get('categories', UNDEFINED)
-        def site_left():
-            return render_site_left(context._locals(__M_locals))
         def inside_left():
             return render_inside_left(context._locals(__M_locals))
+        def site_left():
+            return render_site_left(context._locals(__M_locals))
         __M_writer = context.writer()
-        __M_writer('\n\n\n')
+        __M_writer('\n')
+        __M_writer('\n\n\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'site_left'):
             context['self'].site_left(**pageargs)
         
@@ -52,14 +54,13 @@ def render_site_left(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         self = context.get('self', UNDEFINED)
-        categories = context.get('categories', UNDEFINED)
-        def site_left():
-            return render_site_left(context)
         def inside_left():
             return render_inside_left(context)
+        def site_left():
+            return render_site_left(context)
         __M_writer = context.writer()
         __M_writer('\n\n\n\n\n    <ul class="nav flex-column">\n')
-        for category in categories:
+        for category in cmod.Category.objects.all() :
             __M_writer('            <li class="nav-item"><a class="nav-link" href="/catalog/index/')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(category.id))
             __M_writer('">')
@@ -90,6 +91,6 @@ def render_inside_left(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/rhettburton/sprint1/catalog/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"29": 0, "40": 1, "45": 19, "51": 4, "61": 4, "62": 10, "63": 11, "64": 11, "65": 11, "66": 11, "67": 11, "68": 13, "73": 17, "79": 15, "85": 15, "91": 85}}
+{"filename": "/Users/rhettburton/sprint1/catalog/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"18": 2, "31": 0, "41": 1, "42": 2, "47": 21, "53": 6, "62": 6, "63": 12, "64": 13, "65": 13, "66": 13, "67": 13, "68": 13, "69": 15, "74": 19, "80": 17, "86": 17, "92": 86}}
 __M_END_METADATA
 """

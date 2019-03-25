@@ -6,9 +6,9 @@ $((function(context) {
         containers.each(function(i,c){
             var pid = $(c).attr('data-product-id');
             $.ajax({
-                "url": "/catalog/index.tile/" + pid
+                "url": "/catalog/product.tile/" + pid
             }).done(function(data){
-
+                $(c).html(data);
             });
 
         });

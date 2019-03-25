@@ -5,6 +5,19 @@ from catalog.models import Category, Product
 from catalog import models as pmod
 
 @view_function
+def process_request(request, product: pmod.Product):
+   
+    plist = product.image_urls()
+
+    context = {
+        'product':  product,
+        'plist': plist,
+    }
+
+    return request.dmp.render('product.html', context)
+
+
+@view_function
 def tile(request, product: pmod.Product):
     # product = pmod.Product.ojbects.get(id=)
 
@@ -13,3 +26,5 @@ def tile(request, product: pmod.Product):
     }
 
     return request.dmp.render('product.tile.html', context)
+
+

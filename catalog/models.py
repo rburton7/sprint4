@@ -32,9 +32,9 @@ class Product(models.Model):
     
 
     def image_url(self): 
-        return self.images_url()[0]
+        return self.image_urls()[0]
 
-    def images_url(self):
+    def image_urls(self):
         prodimgs= ProductImage.objects.filter(product = self)
         urls = []
         for p in prodimgs :
@@ -49,7 +49,7 @@ class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     filename = models.TextField()
     
-    #this method confuses me...what is it supposed to be doing?
+ 
     def image_url(self):
         return settings.STATIC_URL + "catalog/media/products/" + self.filename
 

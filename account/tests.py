@@ -27,7 +27,7 @@ class AccountTests(TestCase):
     def test_change_password(self):
         u1 = amod.User.objects.get(pk=1)
         u1.set_password('newpassword')
-        self.assertTrue(u1.check_password('newpassword'), msg="Username didn't match")
+        self.assertTrue(u1.check_password('newpassword'), msg="Password didn't match")
 
 
     def test_login(self):
