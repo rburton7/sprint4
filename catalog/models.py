@@ -1,6 +1,32 @@
 from django.db import models
 import sprint1.settings as settings
+from decimal import Decimal
+import stripe
 
+TAX_RATE = Decimal("0.05")
+
+class Sale(models.Model):
+    user = models.ForeignKey("account.User", on_delete=models.PROTECT)
+    created = models.DateTimeField(auto_now_add=True)
+    purchased = models.DateTimeField(null=True, default=None)
+    subtotal = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
+    tax = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
+    total = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
+    charge_id = models.TextField(null=True, default=None)
+
+class SaleItem(models.Model):
+    STATUS_CHOICES = [
+        ( 'A', 'Active' ),
+        ( 'D', 'Deleted' ),
+    ]
+    status = models.CharField(max_length=1, default=STATUS_CHOICES[0][0], choices=STATUS_CHOICES)
+    sale = models.ForeignKey("Sale", on_delete=models.PROTECT, related_name="items")
+    product = models.ForeignKey("Product", on_delete=models.PROTECT)
+    quantity = models.IntegerField(default=0)
+    price = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
+
+class Meta:
+    ordering = [ 'product__name' ]
 
 
 class Category(models.Model):
