@@ -4,6 +4,7 @@ html, body {
   font-family: sans-serif;
   color: #d4d4da;
   font-size: 15px;
+  display: inline;
 }
 
 #maintanence_message {
@@ -42,6 +43,10 @@ ul {
 }
 ul li {
   padding: 10px;
+}
+
+a {
+  color: aliceblue;
 }
 
 header > .title {

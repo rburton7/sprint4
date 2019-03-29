@@ -1,0 +1,26 @@
+<%inherit file = "app_base.htm"/>
+<%!from django.conf import settings %>
+
+<%block name="site_center">
+
+<form action="" method="post">
+    
+        <table>
+        ${ form.as_table()} 
+        </table>
+        <!-- <input type="submit" class="btn btn-info" value="Buy Now"> -->
+
+    <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="${ settings.STRIPE_PUBLIC_KEY }"
+    data-amount="${ stripeTotal }"
+    data-name="Stripe.com"
+    data-description="Widget"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto"
+    data-zip-code="true">
+  </script>
+
+</form>
+
+</%block>

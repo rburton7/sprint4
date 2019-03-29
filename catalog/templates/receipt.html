@@ -1,0 +1,65 @@
+<%inherit file="app_base.htm"/>
+
+<%block name="site_center">
+
+<div class="container">
+  <h2>Receipt</h2>
+  <p>Thank you for your purchase!</p>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Product Image</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Extended</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+
+        %for item in SI :
+            <tr>
+
+                <td> <img src="${item.product.image_url()}"/></td>
+                <td>${item.product.name}</td>
+                <td>${item.quantity}</td>
+                <td>${item.product.price}</td>
+                <td>${item.product.price * item.quantity}</td>
+               
+                
+            </tr>
+        %endfor
+
+        
+        
+    
+      <tr>
+        <td></td>
+        <td>Tax</td>
+        <td></td>
+        <td>${myproducts.tax}</td>
+        <td></td>
+      </tr>
+     <tr>
+        <td></td>
+        <td>Total</td>
+        <td></td>
+        <td>${myproducts.total}</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+
+<a class="btn-lg btn-success" href="/catalog/index/">Return to Products</a>
+
+</div>
+</br>
+
+
+
+</%block>

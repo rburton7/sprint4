@@ -2,6 +2,9 @@ from django.db import models
 import sprint1.settings as settings
 from decimal import Decimal
 import stripe
+from catalog import models as cmod
+from datetime import datetime
+
 
 TAX_RATE = Decimal("0.05")
 
@@ -13,6 +16,38 @@ class Sale(models.Model):
     tax = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
     total = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
     charge_id = models.TextField(null=True, default=None)
+
+    def recalculate(self):
+        self.subtotal = Decimal("0.00")
+        self.total = Decimal("0.00")
+        for sitem in SaleItem.objects.filter(sale=self, status='A'):
+            self.subtotal += sitem.quantity * sitem.price
+        
+        self.tax = (self.subtotal * TAX_RATE)
+        self.total = (self.subtotal + self.tax)
+       
+
+    def finalize(self, stripeToken):
+        saleitems = SaleItem.objects.filter(status='A', sale=self)
+        # Ensure this sale isn't already finalized (purchased should be None)
+        if self.purchased == None :
+            # Check product quantities one more time
+            for si in saleitems:
+                si.product.quantity <= si.quantity
+            self.recalculate()
+            #token = request.form['stripeToken'] #goes in clean method of form
+            charge = stripe.Charge.create(
+                amount= int(round((self.total * Decimal("100.0")),2)),
+                currency='usd',
+                description='Example charge',
+                source=stripeToken,
+            )
+            # Set purchased=now and charge_id=the id from Stripe
+            self.purchased = datetime.now()
+            self.charge_id = charge['id']
+            self.save()
+    
+    
 
 class SaleItem(models.Model):
     STATUS_CHOICES = [

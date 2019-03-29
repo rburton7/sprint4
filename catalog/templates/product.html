@@ -1,26 +1,54 @@
 <%inherit file="app_base.htm"/>
 
 <%block name="site_center">
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <ul >
+                
+                %for pr in plist :
+                
 
-<ul >
+                <a href="/catalog/product/${product.id}/">
+                <img data-product-id="${product.id}" class="ppimagethumb" src="${pr}"/>
+                </a>
+                
 
-    %for pr in plist :
-
-    <a href="/catalog/product/${product.id}/">
-    <img data-product-id="${product.id}" class="img-thumbnail" src="${pr}"/>
-    </a>
-
-    %endfor
-
-</ul>
-
-<a href="/catalog/product/${product.id}/">
-    <div class="product-tile">
-        <div class="product-image"><img src="${product.image_url()}"/></div>
-        <div class="product-name">${product.name}</div>
-        <div class="product-price">${product.price}</div>
-    </div>
-</a>
+                %endfor
+            
+            </ul>
+        </div>
+        <div class="col-md">
+            
+                <div class="product-tile">
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    
+                   <a href="/catalog/product/${product.id}/"> <div class="product-image"><img src="${product.image_url()}"/></div> </a>
+                    
+                </div>
+           
+        </div>
+        <div class="col-sm">
+        
+            <div class="product-name"><h2>${product.name}</h2></div>
+            <div class="product-price">$${product.price}</div></br>
+          <form method="post">
+            <table>
+            ${ form.as_table() }
+            </table>
+            <input type="submit" value="Submit">
+        </form>
+        </div>
+    </div>
+</div>
 </%block>
 
 <%block name="inside_left">

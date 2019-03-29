@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1552007320.6508439
+_modified_time = 1553802446.627483
 _enable_loop = True
 _template_filename = '/Users/rhettburton/sprint1/homepage/templates/base.htm'
 _template_uri = '/homepage/templates/base.htm'
@@ -23,19 +23,19 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        self = context.get('self', UNDEFINED)
-        def title():
-            return render_title(context._locals(__M_locals))
-        def site_center():
-            return render_site_center(context._locals(__M_locals))
         def site_right():
             return render_site_right(context._locals(__M_locals))
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        request = context.get('request', UNDEFINED)
-        def site_left():
-            return render_site_left(context._locals(__M_locals))
+        def title():
+            return render_title(context._locals(__M_locals))
         def menu_items():
             return render_menu_items(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        request = context.get('request', UNDEFINED)
+        def site_center():
+            return render_site_center(context._locals(__M_locals))
+        def site_left():
+            return render_site_left(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n<!DOCTYPE html>\n<html>\n    <meta charset="UTF-8">\n    <head>\n\n        <title>Sprint 1 &mdash; ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -64,9 +64,9 @@ def render_body(context,**pageargs):
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page == 'contact' else ''))
         __M_writer(' ">\n        <a class="nav-link" href="/contact/">Contact</a>\n      </li>\n      <li class="nav-item">\n        <a class="nav-link ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page == 'about' else ''))
-        __M_writer(' " href="#">About</a>\n      </li>\n</ul>\n\n<ul class="navbar-nav ml-auto">\n    <li class="nav-item dropdown" >\n                        \n                    \n')
+        __M_writer(' " href="/catalog/index/">Products</a>\n      </li>\n</ul>\n\n<ul class="navbar-nav ml-auto">\n    <li class="nav-item dropdown" >\n                        \n                    \n')
         if request.user.is_authenticated :
-            __M_writer('                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n                             Welcome, Homer\n                            </a>\n                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">\n                            <a class="dropdown-item" href="/account/logout/">Logout</a>\n')
+            __M_writer('                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n                             Welcome, Homer\n                            </a>\n                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">\n                            <a class="dropdown-item" href="/account/logout/">Logout</a>\n                            <a class="dropdown-item" href="/catalog/cart/">Cart</a>\n')
         else: 
             __M_writer('                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n                             Welcome!\n                            </a>\n                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">\n                            <a class="dropdown-item" href="/account/login/">Login</a>\n')
         __M_writer('                        <div class="dropdown-divider"></div>\n                        <a class="dropdown-item" href="#">Settings</a>\n                        </div>\n     </li>\n</ul>\n\n    ')
@@ -159,6 +159,6 @@ def render_site_right(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/rhettburton/sprint1/homepage/templates/base.htm", "uri": "/homepage/templates/base.htm", "source_encoding": "utf-8", "line_map": {"18": 128, "22": 0, "40": 2, "45": 8, "46": 11, "47": 11, "48": 11, "49": 12, "50": 12, "51": 13, "52": 13, "53": 17, "54": 18, "55": 18, "56": 25, "57": 26, "58": 26, "59": 36, "60": 43, "61": 43, "62": 51, "63": 51, "64": 54, "65": 54, "66": 58, "67": 58, "68": 66, "69": 67, "70": 72, "71": 73, "72": 79, "77": 87, "82": 109, "87": 116, "92": 122, "93": 130, "94": 131, "95": 131, "101": 8, "112": 85, "118": 85, "124": 107, "130": 107, "136": 114, "142": 114, "148": 120, "154": 120, "160": 154}}
+{"filename": "/Users/rhettburton/sprint1/homepage/templates/base.htm", "uri": "/homepage/templates/base.htm", "source_encoding": "utf-8", "line_map": {"18": 129, "22": 0, "40": 2, "45": 8, "46": 11, "47": 11, "48": 11, "49": 12, "50": 12, "51": 13, "52": 13, "53": 17, "54": 18, "55": 18, "56": 25, "57": 26, "58": 26, "59": 36, "60": 43, "61": 43, "62": 51, "63": 51, "64": 54, "65": 54, "66": 58, "67": 58, "68": 66, "69": 67, "70": 73, "71": 74, "72": 80, "77": 88, "82": 110, "87": 117, "92": 123, "93": 131, "94": 132, "95": 132, "101": 8, "112": 86, "118": 86, "124": 108, "130": 108, "136": 115, "142": 115, "148": 121, "154": 121, "160": 154}}
 __M_END_METADATA
 """

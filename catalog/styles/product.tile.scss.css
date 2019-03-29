@@ -4,10 +4,16 @@
   border: solid 5px black;
   border-radius: 5px;
   margin: 5px;
+  background-color: dimgray;
+}
+
+.ppimagethumb {
+  width: 100px;
+  height: 100px;
 }
 
 .product-image {
-  display: block;
+  display: inline-block;
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -16,11 +22,13 @@
 .product-name {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+  color: aliceblue;
 }
 
 .product-price {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+  color: aliceblue;
 }
 
 /*# sourceMappingURL=product.tile.scss.css.map */
