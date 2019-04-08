@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1553818590.160116
+_modified_time = 1554078876.826983
 _enable_loop = True
 _template_filename = '/Users/rhettburton/sprint1/catalog/templates/checkout.html'
 _template_uri = 'checkout.html'
@@ -32,11 +32,11 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        self = context.get('self', UNDEFINED)
         def site_center():
             return render_site_center(context._locals(__M_locals))
-        stripeTotal = context.get('stripeTotal', UNDEFINED)
         form = context.get('form', UNDEFINED)
+        stripeTotal = context.get('stripeTotal', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         __M_writer('\n\n')
@@ -52,15 +52,16 @@ def render_body(context,**pageargs):
 def render_site_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        self = context.get('self', UNDEFINED)
         def site_center():
             return render_site_center(context)
-        stripeTotal = context.get('stripeTotal', UNDEFINED)
         form = context.get('form', UNDEFINED)
+        stripeTotal = context.get('stripeTotal', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\n<form action="" method="post">\n    \n        <table>\n        ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( form.as_table()))
-        __M_writer(' \n        </table>\n        <!-- <input type="submit" class="btn btn-info" value="Buy Now"> -->\n\n    <script\n    src="https://checkout.stripe.com/checkout.js" class="stripe-button"\n    data-key="')
+        __M_writer(' \n        </table>\n')
+        __M_writer('\n    <script\n    src="https://checkout.stripe.com/checkout.js" class="stripe-button"\n    data-key="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( settings.STRIPE_PUBLIC_KEY ))
         __M_writer('"\n    data-amount="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( stripeTotal ))
@@ -72,6 +73,6 @@ def render_site_center(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/rhettburton/sprint1/catalog/templates/checkout.html", "uri": "checkout.html", "source_encoding": "utf-8", "line_map": {"18": 2, "31": 0, "41": 1, "42": 2, "52": 4, "61": 4, "62": 9, "63": 9, "64": 15, "65": 15, "66": 16, "67": 16, "73": 67}}
+{"filename": "/Users/rhettburton/sprint1/catalog/templates/checkout.html", "uri": "checkout.html", "source_encoding": "utf-8", "line_map": {"18": 2, "31": 0, "41": 1, "42": 2, "52": 4, "61": 4, "62": 9, "63": 9, "64": 12, "65": 15, "66": 15, "67": 16, "68": 16, "74": 68}}
 __M_END_METADATA
 """
